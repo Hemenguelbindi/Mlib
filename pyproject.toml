@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "mlib"
+version = "0.1.0"
+description = ""
+authors = ["Victor Karpov <nilafe4@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+selenium = "^4.9.1"
+webdriver-manager = "^3.8.6"
+django = "^4.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
