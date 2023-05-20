@@ -19,9 +19,9 @@ class NewVisitorTest(unittest.TestCase):
         """Тест: можно начать список и получить его позже"""
         self.browser.get('http://localhost:8000')
         self.assertIn('To-Do', self.browser.title)
-        header_text = self.browser.find_element(By.NAME,'h1').text
-        self.assertIn('To-Do', header_text)
-        inputbox = self.browser.find_element(By.CLASS_NAME, 'id_new_item')
+        header_text = self.browser.find_element(By.TAG_NAME, 'h1').text
+        self.assertIn('Your To-Do list', header_text)
+        inputbox = self.browser.find_element(By.ID, 'id_new_item')
         self.assertEqual(
             inputbox.get_attribute('placeholder'),
             'Enter a to-do item'
@@ -29,7 +29,7 @@ class NewVisitorTest(unittest.TestCase):
         inputbox.send_keys('Купить перья павлина')
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        table = self.browser.find_element(By.CLASS_NAME, 'id_list_table')
+        table = self.browser.find_element(By.ID, 'id_list_table')
         rows = table.find_element('tr')
         self.assertTrue(any(row.text == '1: Купить павлиньи перья' for row in rows))
         self.fail("Закончить тест!")
