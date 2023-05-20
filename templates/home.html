@@ -9,9 +9,15 @@
 </head>
 <body>
     <h1>Your To-Do list</h1>
-    <input type="text" id="id_new_item" placeholder="Enter a to-do item">
-    <table id="id_list_table">
+    <form method="post">
+        <input name="item_text" type="text" id="id_new_item" placeholder="Enter a to-do item">
+        {% csrf_token %}
+    </form>
 
-    </table>
+    <section class="list_table">
+        {% for item in items %}
+            <div>{{ forloop.counter }}: {{ item.text }}</div>
+        {% endfor %}
+    </section>
 </body>
 </html>

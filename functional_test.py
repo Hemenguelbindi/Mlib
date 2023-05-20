@@ -7,13 +7,20 @@ from webdriver_manager.firefox import GeckoDriverManager
 
 
 class NewVisitorTest(unittest.TestCase):
-    '''тест нового поситителя'''
+    """Тест нового посетителя"""
 
     def setUp(self) -> None:
         self.browser = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
     def tearDown(self) -> None:
+        """демонтаж"""
         self.browser.quit()
+
+    def check_for_row_in_list_table(self, row_text):
+        """подтверждение строки в таблице списка"""
+        table = self.browser.find_element(By.XPATH, "//*[@class='list_table']")
+        rows = table.find_elements(By.TAG_NAME, 'div')
+        self.assertIn(row_text, [row.text for row in rows])
 
     def test_can_start_a_list_and_retrieve_it_later(self):
         """Тест: можно начать список и получить его позже"""
@@ -29,10 +36,13 @@ class NewVisitorTest(unittest.TestCase):
         inputbox.send_keys('Купить перья павлина')
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        table = self.browser.find_element(By.ID, 'id_list_table')
-        rows = table.find_element('tr')
-        self.assertTrue(any(row.text == '1: Купить павлиньи перья' for row in rows))
-        self.fail("Закончить тест!")
+        self.check_for_row_in_list_table('1: Купить перья павлина')
+        inputbox = self.browser.find_element(By.ID, 'id_new_item')
+        inputbox.send_keys("Сделать мушку из павлиньих перьев")
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+        self.check_for_row_in_list_table('2: Сделать мушку из павлиньих перьев')
+
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
