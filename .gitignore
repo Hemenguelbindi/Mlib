@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/django,test
-# Edit at https://www.toptal.com/developers/gitignore?templates=django,test
+# Created by https://www.toptal.com/developers/gitignore/api/django
+# Edit at https://www.toptal.com/developers/gitignore?templates=django
 
 ### Django ###
 *.log
@@ -171,90 +171,11 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-### Test ###
-### Ignore all files that could be used to test your code and
-### you wouldn't want to push
-
-# Reference https://en.wikipedia.org/wiki/Metasyntactic_variable
-
-# Most common
-*foo
-*bar
-*fubar
-*foobar
-*baz
-
-# Less common
-*qux
-*quux
-*bongo
-*bazola
-*ztesch
-
-# UK, Australia
-*wibble
-*wobble
-*wubble
-*flob
-*blep
-*blah
-*boop
-*beep
-
-# Japanese
-*hoge
-*piyo
-*fuga
-*hogera
-*hogehoge
-
-# Portugal, Spain
-*fulano
-*sicrano
-*beltrano
-*mengano
-*perengano
-*zutano
-
-# France, Italy, the Netherlands
-*toto
-*titi
-*tata
-*tutu
-*pipppo
-*pluto
-*paperino
-*aap
-*noot
-*mies
-
-# Other names that would make sense
-*tests
-*testsdir
-*testsfile
-*testsfiles
-*test
-*testdir
-*testfile
-*testfiles
-*testing
-*testingdir
-*testingfile
-*testingfiles
-*temp
-*tempdir
-*tempfile
-*tempfiles
-*tmp
-*tmpdir
-*tmpfile
-*tmpfiles
-*lol
-
-# End of https://www.toptal.com/developers/gitignore/api/django,test
+# End of https://www.toptal.com/developers/gitignore/api/django
+/geckodriver.log
+/.idea/.gitignore
 /.idea/misc.xml
 /.idea/Mlib.iml
 /.idea/modules.xml
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/vcs.xml
-/.idea/.gitignore
